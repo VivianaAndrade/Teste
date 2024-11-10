@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Reserva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo de fundo */
+        body {
+            background-color: #fef0d3;
+            color: #3c2415;
+            font-family: 'gotham-thin', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container do formulário */
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+
+        /* Cabeçalho */
+        h1 {
+            color: #ff7f61;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
+            font-family: 'gotham', 'Arial', sans-serif;
+        }
+
+        /* Labels e campos de entrada */
+        .form-label {
+            color: #3c2415;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            border: 1px solid #ff7f61;
+            border-radius: 8px;
+            padding: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #e66b51;
+            box-shadow: 0 0 8px rgba(230, 107, 81, 0.5);
+        }
+
+        /* Botão de envio */
+        .btn-primary {
+            background-color: #ff7f61;
+            border: none;
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #e66b51;
+        }
+
+        /* QR Code */
+        #qr-code {
+            display: block;
+            margin: 1.5rem auto;
+            border: 2px solid #ff7f61;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        #qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        /* Valor total */
+        #valor-total {
+            color: #3c2415;
+            font-weight: bold;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        /* Link de pagamento */
+        a {
+            color: #ff7f61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Texto */
+        p {
+            font-size: 1rem;
+            color: #3c2415;
+        }
+
+        /* Mensagem */
+        .message-container {
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #3c2415;
+
+            /* FONTES */
+        }
+@font-face {
+    font-family: 'gotham';
+    src: url('Fontes/Gotham-Black.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'gotham-thin';
+    src: url('Fontes/Gotham-Thin.otf') format('opentype');
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Formulário de Reserva</h1>
+        <form id="form-reserva" onsubmit="enviarWhatsApp(event)">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" required>
+            </div>
+            <div class="mb-3">
+                <label for="celular" class="form-label">Celular</label>
+                <input type="tel" class="form-control" id="celular" required>
+            </div>
+            <div class="mb-3">
+                <label for="quantidade" class="form-label">Quantidade de Panquecas</label>
+                <input type="number" class="form-control" id="quantidade" readonly>
+                <p id="valor-total">Valor a ser pago: R$ <span id="valor-pagamento">0,00</span></p>
+                <p>Pague pelo Qr-code abaixo ou pelo link de pagamento <a target="_blank" href="https://nubank.com.br/pagar/y7cor/cpvXVdhsEo">clicando aqui</a></p>
+            </div>
+            <div class="mb-3 text-center">
+                <img id="qr-code" src="Imagens/qr-code-plus.png" alt="QR Code de Pagamento Pix">
+                <p> Nome: Carlos Augusto de Oliveira</p>
+                <p>Chave aleatória: 8e26c7dc-4e8c-419e-8bc1-6cf7b4120166</p>
+                <div class="message-container">
+                    <p>Clique no botão para enviar sua reserva em nosso WhatsApp, não se esqueça de compartilhar conosco o comprovante Pix!</p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar Reserva</button>
+        </form>
+    </div>
+
+    <script>
+        // Função para capturar a quantidade de panquecas da URL e calcular o valor total
+        window.onload = function() {
+            var params = new URLSearchParams(window.location.search);
+            var quantidade = parseInt(params.get('quantidade')) || 0;
+            document.getElementById('quantidade').value = quantidade;
+
+            // Calcula e exibe o valor total
+            var valorTotal = quantidade * 50;
+            document.getElementById('valor-pagamento').textContent = valorTotal.toFixed(2);
+        };
+
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            
+            var nome = document.getElementById('nome').value;
+            var celular = document.getElementById('celular').value;
+            var quantidade = document.getElementById('quantidade').value;
+            var valorTotal = quantidade * 50; // Ajuste para o valor correto de R$50,00
+
+            var mensagem = `Olá, meu nome é ${nome}. Gostaria de reservar ${quantidade} panquecas. O valor total é R$ ${valorTotal.toFixed(2)}. Meu celular é ${celular}.`;
+
+            // Redireciona para o WhatsApp com a mensagem
+            window.open(`https://wa.me/5518933009254?text=${encodeURIComponent(mensagem)}`, '_blank');
+        }
+    </script>
+</body>
+</html>

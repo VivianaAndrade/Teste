@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="Imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="Reserva.css">
+      
+</head>
+
+<body>
+    <p class="inicio"></p>
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <img class="logo" src="Imagens/Logo.grande.png" alt="logo dip.bite"> <!-- Corrigi o nome da imagem para um formato válido -->
+            <div class="retangulo">
+                <form class="container-fluid justify-content-start">
+                    <a class="btn btn-custom me-2" type="button" href="index.html">Início</a>
+                    <a class="btn btn-custom me-2" type="button" href="sobre.html">Sobre nós</a>
+                    <a class="btn btn-custom me-2" type="button" href="reserva.html">Reserva</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <p class="footer mt-auto py-4"></p></p>
+
+    <div class="meio">
+        <!-- Seção do Carrossel -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="width: 400px;">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Imagens/Caixa.jpeg" class="d-block w-100" alt="Panqueca 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="Imagens/Aberto.jpeg" class="d-block w-100" alt="Panqueca 2">
+                </div>
+                
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+        <!-- Seção do Produto -->
+    <div class="produto-container">
+        <h1>Panquecas Dip.bit</h1>
+        <p>Preço unitário: R$ <span id="preco-unitario">50.00</span></p>
+        
+        <div class="quantidade">
+            <button id="diminuir" onclick="alterarQuantidade(-1)">-</button>
+            <input type="text" id="quantidade" value="1" readonly>
+            <button id="aumentar" onclick="alterarQuantidade(1)">+</button>
+        </div>
+
+        <p>Total: R$ <span id="valor-total">50.00</span></p>
+
+        <button id="reservar" onclick="reservar()">Reservar</button>
+        <p></p>
+
+        <div style="border: 2px solid #fff; padding: 20px; background-color: #f8f8f8; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 400px; margin: auto;">
+            <p style="font-size: 16px; font-family: 'gotham', sans-serif; color: #333; line-height: 1.5;">
+              Deliciosas 5 mini panquecas acompanhadas (150g) de um potinho de ganache (30g), decoradas com meia cereja e uma folha de hortelã para um toque visual e aromático.
+            </p>
+          </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+    </div>
+
+    
+<p class="inicio"></p>
+    <footer class="footer mt-auto py-4">
+        <div class="container text-center">
+            <div class="row">
+                <!-- Seção de redes sociais -->
+                <div class="col-md-4 mb-3">
+                    <h5>Siga-nos</h5>
+
+                    <a href="https://www.instagram.com/dip.bite?igsh=MXYzMDk5ZGh4OWZhaQ=="><img src="Imagens/Instagram.png" alt="Instagram" width="30px" style="margin-right: 10px;"></a>
+                </div>
+                <!-- Seção de contatos -->
+                <div style="color: black;" class="col-md-4 mb-3">
+                    <h5>Contato</h5>
+                    <p  style="color: black;">Telefone: (18) 93300-9254</p>
+                </div>
+                <!-- Link das paginas -->
+                <div class="col-md-4 mb-3">
+                    <h5 >Informações</h5>
+                    <a href="index.html" class="link-footer">Página Inicial</a><br>
+                    <a href="sobre.html" class="link-footer">Sobre Nós</a><br>
+                    <a href="reserva.html" class="link-footer">Reserva</a>
+                </div>
+            </div>
+            <!-- Seção de direitos autorais -->
+            <div class="row">
+                <div class="col-12">
+                    <p  style="color: black;" class="mt-4">&copy; 2024 Dip.bite - Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+        </div>
+    </div>
+</footer>
+
+    <!-- JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    
+<script>
+function reservar() {
+    // Obtém a quantidade de panquecas
+    var quantidade = document.getElementById('quantidade').value;
+
+    // Redireciona para a página de formulário, passando a quantidade como parâmetro
+    window.location.href = "formulario.html?quantidade=" + quantidade;
+}
+</script>
+
+</body>
+</html>

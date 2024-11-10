@@ -1,0 +1,154 @@
+/* Corpo */
+body {
+    background-color: #fef0d3;
+    font-family: 'gotham-thin', Arial, sans-serif;
+    overflow: auto; /* Habilita a rolagem se exceder a altura máxima */
+}
+
+h1 {
+    margin-left: 30%;
+    font-size: 72px;
+    color: #3c2415;
+    font-family: 'gotham';
+}
+
+h2, h3, p {
+    color: #3c2415;
+    font-family: 'gotham-thin';
+    text-align: center;
+}
+
+.meio {
+    max-width: 1200px; /* Limite máximo de largura */
+    margin: 0 auto; /* Centraliza a página no meio da tela */ 
+}
+
+/* Navbar */
+.navbar {
+    background-color: #fef0d3;
+    padding: 20px 0;
+    margin: 0; /* Remove margem */
+}
+
+.logo {
+    width: 300px; /* Define a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    float: left; /* Alinha a imagem à esquerda */
+}
+
+.retangulo {
+    background-color: #ff7f61; /* Cor de fundo */
+    border-radius: 15px; /* Bordas arredondadas */
+    padding: 15px 30px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    width: 900px;
+    display: flex; /* Ativa flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+/* Botão customizado */
+.btn-custom {
+    background-color: #fef0d3; 
+    color: black; 
+    width: 200px;
+    border-radius: 25px;
+    border: 2px solid #ff7f61; /* Borda para destaque */
+    margin-right: 10px;
+    font-family: 'gotham', Arial, sans-serif;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #ff7f61; /* Efeito de hover */
+    color: white;
+}
+
+/* FONTES */
+@font-face {
+    font-family: 'gotham';
+    src: url('Fontes/Gotham-Black.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'gotham-thin';
+    src: url('Fontes/Gotham-Thin.otf') format('opentype');
+}
+
+/* MAPS */
+.mapa-google iframe {
+    width: 600px;
+    height: 400px;
+    border: none; 
+    margin-left: 25%;
+}
+
+/* Cards */
+.card {
+    background-color: #ff7f61;
+    margin: 20px;
+}
+
+/* RODAPÉ */
+.footer {
+    background-color: #fef0d3;
+    color: #333;
+    border-top: 2px solid #ff7f61;
+    padding: 20px; /* Espaçamento do rodapé */
+    display: flex; /* Ativa flexbox */
+    justify-content: space-between; /* Espaçamento entre itens */
+    margin: 0; /* Remove margem */
+}
+
+.footer h5 {
+    font-family: 'gotham', Arial, sans-serif;
+    color: #ff7f61;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    font-family: 'gotham-thin', Arial, sans-serif;
+    margin-bottom: 5px;
+}
+
+.link-footer {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-footer:hover {
+    color: #ff7f61;
+    text-decoration: underline;
+}
+
+.footer img {
+    transition: transform 0.3s ease;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}
+
+.footer a {
+    color: #ff7f61;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.cardFotos {
+    background-color: #ff7f61;
+    margin: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    width: 258px;
+    height: 600px;
+    
+}
